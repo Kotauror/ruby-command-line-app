@@ -31,6 +31,15 @@ describe Interface do
     end
   end
 
+  describe "#failure" do
+    it "informs of a nonsuccessful transaction" do
+      allow(interface).to receive(:sleep)
+      expect{interface.failure(5)}.to output(
+        "\"5 is not available - try again!\"\n"
+      ).to_stdout
+    end
+  end
+
   describe "#seeyou" do
     it "says see you" do
       allow(interface).to receive(:sleep)

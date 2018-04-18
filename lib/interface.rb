@@ -20,6 +20,10 @@ class Interface
     p "Thank you for shopping! If you want to shop again, type 1."
   end
 
+  def failure(number)
+    p "#{number} is not available - try again!"
+  end
+
   def seeyou
     p "See you!"
   end

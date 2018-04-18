@@ -19,7 +19,7 @@ class Shop
       number2 = gets.chomp.to_i
       number2 == 1 ? user_menu : interface.seeyou
     else
-      p "#{number} is not available - try again!"
+      interface.failure(number)
       user_menu
     end
   end
