@@ -1,3 +1,7 @@
+require_relative 'interface'
+require_relative 'inventory'
+require_relative 'product'
+
 class Inventory
 
   attr_reader :products
@@ -6,8 +10,17 @@ class Inventory
     @products = []
   end
 
-  def add_to_products(product)
-    products << product
+  def add_to_products(array_of_products)
+    array_of_products.each { |product|
+      products << product
+    }
+  end
+
+  def show_products
+    p " name || price "
+    products.each { | product|
+      p "#{product.name}, #{product.price}"
+    }
   end
 
 end
