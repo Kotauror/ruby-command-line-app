@@ -12,12 +12,12 @@ class Shop
 
   def user_menu
     inventory.show_products
-    interface.get_number
-    number = gets.chomp.to_i
-    if inventory.check_if_available(number) then
-      interface.success(number)
-      number2 = gets.chomp.to_i
-      number2 == 1 ? user_menu : interface.seeyou
+    interface.get_barcode
+    barcode = gets.chomp.to_i
+    if inventory.check_if_available(barcode) then
+      interface.success(barcode)
+      number = gets.chomp.to_i
+      number == 1 ? user_menu : interface.seeyou
     else
       interface.failure(number)
       user_menu

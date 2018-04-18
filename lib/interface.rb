@@ -12,7 +12,7 @@ class Interface
     sleep(1)
   end
 
-  def get_number
+  def get_barcode
     p "Type a barcode of a product you're interessted in."
   end
 

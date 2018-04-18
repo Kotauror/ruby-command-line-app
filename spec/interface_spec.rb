@@ -13,10 +13,10 @@ describe Interface do
     end
   end
 
-  describe "#get_number" do
+  describe "#get_barcode" do
     it "asks for a number" do
       allow(interface).to receive(:sleep)
-      expect{interface.get_number}.to output(
+      expect{interface.get_barcode}.to output(
         "\"Type a barcode of a product you're interessted in.\"\n"
       ).to_stdout
     end
