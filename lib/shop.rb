@@ -11,6 +11,7 @@ class Shop
   end
 
   def user_menu
+    user = User.new
     inventory.show_products
     interface.get_barcode
     barcode = gets.chomp.to_i

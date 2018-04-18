@@ -15,7 +15,6 @@ class Shopping < Sinatra::Base
   get '/' do
     'Hello and welcome to the shop'
     @products = shop.inventory.return_products
-    p @products
     erb(:'index')
   end
 
