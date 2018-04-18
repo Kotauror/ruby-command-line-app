@@ -23,4 +23,18 @@ class Inventory
     }
   end
 
+  def check_if_available(numbers)
+    d = numbers.length
+    counter = 0
+    numbers.each { |number|
+      products.each { |product|
+        if number == product.barcode then
+          counter += 1
+          products.delete(product)
+        end
+      }
+    }
+    counter == d ? true : false
+  end
+
 end

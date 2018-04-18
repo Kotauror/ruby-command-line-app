@@ -27,4 +27,15 @@ describe Inventory do
       ).to_stdout
     end
   end
+
+  describe '#check_if_available' do
+    it 'returns true if all products are available' do
+      inventory.add_to_products([product, product2])
+      expect(inventory.check_if_available([200, 100])).to eq(true)
+    end
+    it 'returns false if at least one product is not available' do
+      inventory.add_to_products([product, product2])
+      expect(inventory.check_if_available([200, 300])).to eq(false)
+    end
+  end
 end

@@ -11,9 +11,10 @@ class Shop
   end
 
   def user_menu
-    interface.hello
     inventory.show_products
     interface.get_number
+    numbers = gets.chomp
+    inventory.check_if_available(numbers)
   end
 
 end

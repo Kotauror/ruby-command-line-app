@@ -13,7 +13,7 @@ class Interface
   end
 
   def get_number
-    p "Ty"
+    p "Type one or many barcodes of the products you're interessted in."
   end
 
 
