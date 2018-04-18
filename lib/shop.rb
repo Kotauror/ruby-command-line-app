@@ -10,4 +10,10 @@ class Shop
     @inventory = Inventory.new
   end
 
+  def add_products_to_inventory(products)
+    products.each { |product|
+      inventory.add(product)
+    }
+  end
+
 end
