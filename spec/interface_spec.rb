@@ -25,8 +25,8 @@ describe Interface do
   describe "#success" do
     it "informs of a successful transaction and asks for more" do
       allow(interface).to receive(:sleep)
-      expect{interface.success}.to output(
-        "\"Thank you for shopping! If you want to shop again, type 1.\"\n"
+      expect{interface.success(5)}.to output(
+        "\"You've purchased a product number 5. If you want to shop again, type 1.\"\n"
       ).to_stdout
     end
   end

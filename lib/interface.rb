@@ -16,8 +16,8 @@ class Interface
     p "Type a barcode of a product you're interessted in."
   end
 
-  def success
-    p "Thank you for shopping! If you want to shop again, type 1."
+  def success(number)
+    p "You've purchased a product number #{number}. If you want to shop again, type 1."
   end
 
   def failure(number)
