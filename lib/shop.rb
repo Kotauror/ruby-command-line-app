@@ -15,10 +15,12 @@ class Shop
     interface.get_number
     number = gets.chomp.to_i
     if inventory.check_if_available(number) then
-      p "Thank you for shopping!"
-      user_menu
+      interface.success
+      number2 = gets.chomp.to_i
+      number2 == 1 ? user_menu : interface.seeyou
     else
       p "#{number} is not available - try again!"
+      user_menu
     end
   end
 

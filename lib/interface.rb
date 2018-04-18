@@ -16,9 +16,12 @@ class Interface
     p "Type a barcode of a product you're interessted in."
   end
 
-  def shop_again
-    p "Type 1 if you want to shop for more products."
+  def success
+    p "Thank you for shopping! If you want to shop again, type 1."
   end
 
+  def seeyou
+    p "See you!"
+  end
 
 end
