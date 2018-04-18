@@ -17,9 +17,9 @@ class Inventory
   end
 
   def show_products
-    p " name || price "
-    products.each { | product|
-      p "#{product.name}, #{product.price}"
+    p " name || price || barcode "
+    products.each { |product|
+      p "#{product.name}, #{product.price}, #{product.barcode}"
     }
   end
 

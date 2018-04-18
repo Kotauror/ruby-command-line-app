@@ -13,6 +13,7 @@ class Shop
   def user_menu
     interface.hello
     inventory.show_products
+    interface.get_number
   end
 
 end
