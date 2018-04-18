@@ -31,7 +31,11 @@ class Inventory
         counter += 1
       end
     }
-    counter == 1 ? true : false 
+    counter == 1 ? true : false
+  end
+
+  def return_products
+    return products
   end
 
 end

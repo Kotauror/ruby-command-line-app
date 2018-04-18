@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<div class="products">
+  <% @products.each do |product| %>
+    <div class="single_product" id="<%= product.barcode %>">
+      <h2> name: <%= product.name %>, price: <%= product.price %>, barcode:<%= product.barcode %>. </h2>
+    </div>
+  <% end %>
+</div>
+
+Type a barcode of a product you want to buy:
+<form class="what_to_buy" action="/order/new" method="post">
+  <input type="text" name="product" value="product" placeholder="write a barcode of product that you want to buy">
+  <input type="submit" name="" value="">
+</form>
+
+  </body>
+</html>
