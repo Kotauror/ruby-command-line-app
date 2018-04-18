@@ -13,8 +13,13 @@ class Shop
   def user_menu
     inventory.show_products
     interface.get_number
-    numbers = gets.chomp
-    inventory.check_if_available(numbers)
+    number = gets.chomp.to_i
+    if inventory.check_if_available(number) then
+      p "Thank you for shopping!"
+      user_menu
+    else
+      p "#{number} is not available - try again!"
+    end
   end
 
 end
