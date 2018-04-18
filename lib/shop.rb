@@ -10,4 +10,9 @@ class Shop
     @inventory = Inventory.new
   end
 
+  def user_menu
+    interface.hello
+    inventory.show_products
+  end
+
 end
