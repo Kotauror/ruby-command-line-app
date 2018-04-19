@@ -92,3 +92,71 @@ end
     redirect '/'
   end
 ```
+
+9. Blokowanie element
+
+```ruby
+get '/' do
+  @products = shop.inventory.return_products
+  if shop.customer then
+    @userproducts = shop.customer.basket
+    @name = shop.customer.name
+    @balance = shop.customer.balance
+  end
+  erb(:'index')
+end
+```
+
+```html
+<% if session[:user] != nil %>
+Add money to your account
+<form class="money" action="/money/new" method="post">
+  <input type="text" name="money" value="money" placeholder="money">
+  <input type="submit" name="" value="">
+</form>
+<% end %>
+```
+
+10. Add PG i rake gems to the Gemfile.
+11. Create a rakefile to create database.
+
+```ruby
+require 'pg'
+
+task :setup do
+  p "Creating databases..."
+    connection = PG.connect
+    connection.exec("CREATE DATABASE vendingmachine")
+    connection = PG.connect(dbname: "vendingmachine")
+    connection.exec("CREATE TABLE products(id SERIAL PRIMARY KEY, name VARCHAR(240), price VARCHAR(240), barcode VARCHAR(240), date TIMESTAMP);")
+end
+
+task :teardown do
+  p "Tearing down databases..."
+    connection = PG.connect
+    connection.exec("DROP DATABASE vendingmaching};")
+end
+```
+
+
+12. Database_connection.rb
+
+```ruby
+require 'pg'
+
+class DatabaseConnection
+
+  def self.setup(database)
+    @connection = PG.connect :dbname => database
+  end
+
+  def self.connection
+    @connection
+  end
+
+  def self.query(sql_string)
+    @connection.exec sql_string
+  end
+
+end
+```

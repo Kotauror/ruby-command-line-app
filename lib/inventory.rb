@@ -1,6 +1,7 @@
 require_relative 'interface'
 require_relative 'inventory'
 require_relative 'product'
+require_relative 'shop'
 
 class Inventory
 
@@ -27,15 +28,27 @@ class Inventory
     counter = 0
     products.each { |product|
       if number.to_i == product.barcode then
-        products.delete(product)
+        # products.delete(product)
         counter += 1
       end
     }
     counter == 1 ? true : false
   end
 
+  def deletete_product(product)
+    products.delete(product)
+  end
+
   def return_products
     return products
+  end
+
+  def get_product_by_barcode(number)
+    products.each { |product|
+      if product.barcode == number.to_i then
+        return product
+      end
+    }
   end
 
 end

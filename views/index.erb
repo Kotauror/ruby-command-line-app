@@ -6,6 +6,7 @@
   </head>
   <body>
 
+Welcome <%= @name %>, you have a balance of <%= @balance %>
 <div class="products">
   <% @products.each do |product| %>
     <div class="single_product" id="<%= product.barcode %>">
@@ -14,11 +15,36 @@
   <% end %>
 </div>
 
+What is your name?
+<form class="userform" action="/user/new" method="post">
+  <input type="text" name="name" value="name" placeholder="">
+  <input type="submit" name="" value="">
+</form>
+
+<% if session[:user] != nil %>
+Add money to your account
+<form class="money" action="/money/new" method="post">
+  <input type="text" name="money" value="money" placeholder="money">
+  <input type="submit" name="" value="">
+</form>
+<% end %>
+
+<% if session[:user] != nil %>
 Type a barcode of a product you want to buy:
 <form class="what_to_buy" action="/order/new" method="post">
   <input type="text" name="product" value="product" placeholder="write a barcode of product that you want to buy">
   <input type="submit" name="" value="">
 </form>
+<% end %>
+
+<div class="your_products">
+  Your products:
+  <% if @userproducts then %>
+    <% @userproducts.each do |userpro| %>
+        <%= userpro.name %>
+    <% end %>
+  <% end %>
+</div>
 
   </body>
 </html>
